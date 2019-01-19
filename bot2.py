@@ -6,20 +6,25 @@ adress = 'https://api.telegram.org/bot{}/'
 def get_updates ():
 	resultat = requests.get(adress.format(bot_token)+'getupdates')
 	return resultat.json()
-#print (get_updates())
+print (get_updates())
 
 def last_messaga ():
-	updates = get_updates()
-	chat_id = updates['result'][-1]
-	text = chat_id['message']['text']
-	return text
+    updates = get_updates()
+    chat_id = updates['result'][-1]
+    text = chat_id['message']['text']
+    return text
 
-#print  (last_messaga())
+print  (last_messaga())
 
-def send_messsag (text_messag):
-	send = requests.post(adress.format(bot_token)+'sendmessage?chat_id=425899004&text={}'.format(text_messag))
-	return text_messag
-#send_messsag('privet kaver')
+def send_messsag(text_messag):
+    if type(text_messag) == str:
+        send = requests.post(adress.format(bot_token)+'sendmessage?chat_id=425899004&text={}'.format('всё ок'))
+        return(send)
+    else:
+        p = type(text_messag)
+        send = requests.post(adress.format(bot_token)+'sendmessage?chat_id=425899004&text={}'.format('тип сообщения ' + str(p)+' введите текстовый'))
+        return(send)
+send_messsag(0.4)
 def USD ():
 	curs =requests.get('http://www.nbrb.by/API/ExRates/Rates/145')
 	json_dict = curs.json()
