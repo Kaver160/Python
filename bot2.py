@@ -16,10 +16,10 @@ def last_messaga ():
 
 #print  (last_messaga())
 
-def post_messsag (text_messag):
+def send_messsag (text_messag):
 	send = requests.post(adress.format(bot_token)+'sendmessage?chat_id=425899004&text={}'.format(text_messag))
 	return text_messag
-#post_messsag('123bot')
+#send_messsag('privet kaver')
 def USD ():
 	curs =requests.get('http://www.nbrb.by/API/ExRates/Rates/145')
 	json_dict = curs.json()
