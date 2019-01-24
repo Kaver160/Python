@@ -43,3 +43,10 @@ def post_dollar ():
 	sender = requests.post(adress.format(bot_token)+'sendmessage?chat_id=425899004&text={}'.format(curr_rate))
 	return sender
 #post_dollar()
+file = open('tt.txt', 'a')
+updates = get_updates()
+chat_id = updates['result'][-7]
+text = chat_id['message']['text']
+rs = [file.write(' сообщений назад ты писал'.format(updates)+ str(text))]
+file.close()
+
