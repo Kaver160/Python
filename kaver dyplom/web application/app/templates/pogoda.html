@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+
+	Погода в Минске
+
+{% endblock %}
+
+
+
+{% block content_title %}
+
+
+{% endblock %}
+
+
+{% block content %}
+<h1 style="margin-top:-50px;text-align:center">Погода на сегодня</h1>
+<div id="5c5d734145a5532979f523b37c4c51b8" class="ww-informers-box-854753">
+	<p class="ww-informers-box-854754">
+		<a href="https://world-weather.ru/pogoda/belarus/minsk/7days/">https://world-weather.ru</a><br>
+		<a href="https://world-weather.ru/pogoda/russia/perm/">Подробный прогноз</a></p>
+	</div><script type="text/javascript" charset="utf-8" src="https://world-weather.ru/wwinformer.php?userid=5c5d734145a5532979f523b37c4c51b8"></script>
+	<style>.ww-informers-box-854754{-webkit-animation-name:ww-informers54;animation-name:ww-informers54;-webkit-animation-duration:1.5s;animation-duration:1.5s;white-space:nowrap;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;font-size:12px;font-family:Arial;line-height:18px;text-align:center}@-webkit-keyframes ww-informers54{0%,80%{opacity:0}100%{opacity:1}}@keyframes ww-informers54{0%,80%{opacity:0}100%{opacity:1}}</style>
+	<h1 style="padding-top:20px;padding-left:400px">Полные сведенья о погоде на сегодня</h1>
+	{%for weather in pogoda %}
+		<div style="margin-top: -20px; margin-bottom:60px">
+			<h3 style=" padding-top: 30px; padding-bottom font-size: 24px;">
+				{{weather}}
+			</h3>
+		</div>
+	{%endfor%}
+
+{% endblock %}

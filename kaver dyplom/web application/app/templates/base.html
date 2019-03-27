@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>
+
+		{% block title %}
+
+
+		{% endblock %} | Project
+
+	</title>
+
+
+
+	<style>
+
+	@import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Suez+One');
+*{
+	margin:0;
+	padding: 0;
+}
+
+html{
+	width: 100%;
+
+}
+body{
+	height: 100%;
+	background-color: white;
+	overflow-x: hidden;
+}
+
+a{
+	color: #fa713e;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #c34f25;
+	text-decoration: none;
+}
+
+
+header{
+	float: left;
+	background-color:#2F4F4F;
+	height: 25%;
+	width: 99.4%;
+	padding-top: 20px;
+	padding-left: 20px;
+	border-bottom: 5px solid black;
+	font-family: 'Roboto Slab', serif;
+}
+
+header>div#logo>a{
+	color: white;
+	margin-top: 30px;
+}
+
+header>div#logo>a>span{
+	font-size: 2.8em;
+	margin-left: -38px;
+
+	font-family: 'TimesNewRoman', serif;
+}
+
+/*АДАПТИВНОСТЬ*/
+
+@media(min-width: 950px) {
+
+header>div#logo>a{
+	margin-left: 15%;
+	margin-top: 30px;
+}
+
+#logo{
+	float: left;
+	width: 20%;
+}
+#about{
+	float: left;
+	width: 20%;
+	margin-top: 30px;
+}
+#reg_auth{
+	float: right;
+	width: 60%;
+	margin-top: 40px;
+}
+#reg_auth>a{
+	text-align: center;
+}
+#btn{
+	width: 170px;
+	height: 30px;
+}
+}
+
+@media(max-width: 949px) and (min-width: 525px) {
+
+#logo{
+	float: left;
+	width: 30%;
+}
+#about{
+	visibility: hidden;
+	display: none;
+}
+#reg_auth{
+	float: right;
+	width: 50%;
+}
+}
+
+@media(max-width: 524px) {
+
+header>div#logo{
+	margin-top: 30px;
+}
+
+#logo{
+	width: 100%;
+}
+#about{
+	visibility: hidden;
+	display: none;
+}
+#reg_auth{
+	visibility: hidden;
+	display: none;
+}
+}
+/* end АДАПТИВНОСТЬ*/
+
+#reg_auth>a{
+	color: black;
+	font-size: 16px;
+}
+#reg_auth>a>div#btn{
+	float: left;
+	margin-right: 3%;
+	margin-top: 0px;
+	margin-bottom: 50px;
+	border-radius: 20px;
+	padding: 12px 12px;
+	font-size: 1.2em;
+	background-color: rgba(236, 101, 80, 1);
+	text-shadow: #454545 0 0 2px;
+	border-bottom: 4px solid black;
+
+}
+
+#reg_auth>a:hover>div#btn{
+	border-bottom: 2px solid rgb(255,165,0);
+	margin-top: 4px;
+}
+#reg_auth>a:active>div#btn{
+	border-bottom: 0px;
+	margin-top: 9px;
+}
+
+
+#wrapper{
+	display: flex;
+	flex-direction: column;
+	height: 25%;
+}
+
+.content{
+	flex: 1 0 auto;
+	height: 100%;
+}
+
+/*Футер сайта*/
+
+footer{
+	float: left;
+	background-color: #343434;
+	height: 15%;
+	width: 98%;
+	padding: 1%;
+	font-family: 'Berlin Sans FB', serif;
+}
+#site_name{
+	margin-top: 5px;
+	margin-left: 250px;
+	color: white;
+	font-size: 2em;
+	float: none;
+
+}
+#site_name>span{
+	font-family: 'Berlin Sans FB', serif;
+}
+#rights{
+	margin-left: 450px;
+	font-size: 2em;
+	margin-bottom: 5px;
+	color: white;
+}
+@media (max-width: 520px){
+	#site_name{
+		display: none;
+	}
+	#social{
+		width: 100%;
+	}
+}
+	</style>
+
+
+</head>
+<body>
+	<div id="wrapper" style="height: 100vh;">
+			<!-- <div id="content">	 -->
+
+				<header>
+					<div id="logo">
+						<a href="{{ url_for('index') }}" title="На главную">
+
+							<span>DIPLOM PROJECT KAVEROVICHA</span>
+						</a>
+					</div>
+					<div id="reg_auth">
+						<a href="{{ url_for('curs') }}" title="Курсы валют НБ РБ" target="blank">
+							<div id="btn">
+								Курсы валют
+							</div>
+						</a>
+						<a href="{{ url_for('movies') }}" title="Сегодня в кино" target="blank">
+							<div id="btn">
+								Афиша
+							</div>
+						</a>
+						<a href="{{ url_for('pogoda') }}" title="Погода в Минске" target="blank">
+							<div id="btn">
+								Погода в Минске
+							</div>
+						</a>
+					</div>
+				</header>
+
+
+			<div class="container" style="padding-top: 40px; width: 100%; background-color:#D3D3D3">
+				<div class="row" style="">
+					<h1 style="margin-left: 80px; margin-top: 30px;">
+						{% block content_title %}
+
+
+						{% endblock %}
+					</h1>
+
+					{% block content %}
+
+					{% endblock %}
+				</div>
+			</div>
+
+		<footer>
+			<div id="site_name">
+				<span>ORMEDIA</span> - Обучение программированию на PYTHON!
+			</div>
+			<div id="rights">
+				<a href="">Все права защищены &copy2019;</a>
+			</div>
+		</footer>
+	</div>
+
+</body>
+</html>
