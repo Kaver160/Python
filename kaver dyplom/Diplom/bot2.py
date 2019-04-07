@@ -2,6 +2,7 @@ import requests
 from adres import privet
 from kom import usdl, rubl, eurl, uahl, eurl, plnl, weather
 from time import sleep
+from movie import MoviesList
 URL = 'https://api.telegram.org/bot' + privet + '/'
 chat_id='425899004'
 global last_update_id
